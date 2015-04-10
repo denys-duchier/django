@@ -46,6 +46,8 @@ class Serializer(object):
                 RemovedInDjango19Warning)
         self.use_natural_foreign_keys = options.pop('use_natural_foreign_keys', False) or self.use_natural_keys
         self.use_natural_primary_keys = options.pop('use_natural_primary_keys', False)
+        if self.use_natural_primary_keys:
+            self.use_natural_foreign_keys = True
 
         self.start_serialization()
         self.first = True
